@@ -6,6 +6,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "booking")
@@ -26,5 +27,17 @@ public class Booking {
 
     @Column(name = "check_out")
     private Date checkOut;
+
+    @ManyToOne
+    @JoinColumn(name = "id_client")
+    private Client client;
+
+    @ManyToOne
+    @JoinColumn(name = "id_host")
+    private Host host;
+
+    @ManyToOne
+    @JoinColumn(name = "id_apartment")
+    private Apartment apartment;
 
 }

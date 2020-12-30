@@ -17,4 +17,7 @@ public class Host extends User {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "host")
     private Set<Apartment> apartments;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "host")
+    private Set<Booking> booking;
 }

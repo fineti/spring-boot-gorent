@@ -40,6 +40,9 @@ public class Apartment {
     @JoinColumn(name = "host")
     private Host host;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "client")
+    private Set<Booking> booking;
+
     @Column(name = "title")
     private String title;
 
