@@ -1,5 +1,6 @@
 package com.adiprojects.springbootgorent.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -27,6 +28,7 @@ public class Apartment {
             name = "apartment_amenity",
             joinColumns = @JoinColumn(name = "id_apartment"),
             inverseJoinColumns = @JoinColumn(name = "id_amenity"))
+    @JsonIgnore
     private Set<Amenity> amenities;
 
     @ManyToMany
@@ -34,14 +36,21 @@ public class Apartment {
             name = "apartment_facility",
             joinColumns = @JoinColumn(name = "id_apartment"),
             inverseJoinColumns = @JoinColumn(name = "id_facility"))
+    @JsonIgnore
     private Set<Facility> facilities;
 
     @ManyToOne
     @JoinColumn(name = "host")
+    @JsonIgnore
     private Host host;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "client")
+    @JsonIgnore
     private Set<Booking> booking;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "apartment")
+    @JsonIgnore
+    private Set<ApartmentReview> apartmentReviews;
 
     @Column(name = "title")
     private String title;

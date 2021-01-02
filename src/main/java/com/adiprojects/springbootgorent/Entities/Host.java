@@ -1,5 +1,6 @@
 package com.adiprojects.springbootgorent.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,8 +17,10 @@ public class Host extends User {
     private boolean verified;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "host")
+    @JsonIgnore
     private Set<Apartment> apartments;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "host")
+    @JsonIgnore
     private Set<Booking> booking;
 }

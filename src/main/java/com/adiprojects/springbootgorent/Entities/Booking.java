@@ -1,5 +1,8 @@
 package com.adiprojects.springbootgorent.Entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -30,14 +33,17 @@ public class Booking {
 
     @ManyToOne
     @JoinColumn(name = "id_client")
+    @JsonIgnore
     private Client client;
 
     @ManyToOne
     @JoinColumn(name = "id_host")
+    @JsonIgnore
     private Host host;
 
     @ManyToOne
     @JoinColumn(name = "id_apartment")
+    @JsonIgnore
     private Apartment apartment;
 
 }

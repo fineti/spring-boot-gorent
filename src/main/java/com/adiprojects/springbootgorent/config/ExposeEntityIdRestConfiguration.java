@@ -10,7 +10,7 @@ import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
 public class ExposeEntityIdRestConfiguration implements RepositoryRestConfigurer {
     @Override
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
-        config.exposeIdsFor(Apartment.class, User.class, Host.class, Client.class, Booking.class
+        config.exposeIdsFor(Apartment.class, User.class, Host.class, Client.class, Booking.class, ApartmentReview.class
         );
     }
 }

@@ -1,5 +1,6 @@
 package com.adiprojects.springbootgorent.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,5 +25,6 @@ public class Amenity {
     private String iconType;
 
     @ManyToMany(mappedBy = "amenities")
+    @JsonIgnore
     private Set<Apartment> apartments;
 }

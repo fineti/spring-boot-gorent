@@ -1,5 +1,6 @@
 package com.adiprojects.springbootgorent.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,6 +23,7 @@ public class TypeRoom {
     private String typeName;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "typeRoom")
+    @JsonIgnore
     private Set<Apartment> apartments;
 
 }
